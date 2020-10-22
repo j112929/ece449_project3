@@ -1,8 +1,10 @@
+#ifndef EVAP_OP_H
 #define EVAL_OP_H
 
 #include "tensor.h"
 #include <map>
 #include <vector>
+#include "expression.h"
 
 
 typedef std::map<int, tensor> vars_type;
@@ -24,7 +26,7 @@ class eval_const: public eval_op{
         tensor value_;
     public:
         eval_const(const expression &expr);
-        void eval(vars_type &variables , const kwargs_type &kwargs);
+        void eval(vars_type &variables , const kwargs_type &kwargs)override;
 
 };
 
@@ -42,4 +44,5 @@ class eval_add: public eval_op{
         void eval(vars_type &variables , const kwargs_type &kwargs);
     };
 
+#endif 
 

@@ -14,10 +14,6 @@ class evaluation
 public:
     evaluation(const std::vector<expression> &exprs);
     //std::vector<expression> exprs_;
-    //s
-   
-
-    
     std::map<int, tensor> variables_;
     
     void add_kwargs_double(

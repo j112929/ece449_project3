@@ -1,5 +1,4 @@
 #include "eval_op.h"
-
 eval_op::~eval_op(){
 
 }

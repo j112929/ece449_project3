@@ -20,11 +20,11 @@ class expression
     
 public:
 
-    int get_id();
-    std::string get_op_name();
-    std::string get_op_type();
-    std::map<std::string, double> get_op_params();
-    std::map<std::string, tensor> expression::get_op_param();
+    int get_id() const;
+    std::string get_op_name() const;
+    std::string get_op_type() const;
+    std::map<std::string, double> get_op_params() const;
+    tensor get_op_param(const char *key) const;
    // int get_inputs();
     
 

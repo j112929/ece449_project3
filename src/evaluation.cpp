@@ -6,7 +6,8 @@
 {
 }
 */
-evaluation::evaluation(const std::vector<expression> &exprs){
+evaluation::evaluation(const std::vector<expression> &exprs)
+: result_(0){
         for (auto &expr: exprs){
         if (expr.get_op_type() == "Input"){
             ops_.push_back(std::make_shared<eval_input>(expr));
@@ -41,6 +42,14 @@ void evaluation::add_kwargs_ndarray(
 int evaluation::execute()
 { 
     variables_.clear();
+    
+      for (auto &op:ops_) {
+        //op->eval(variables_, kwargs_tensor);
+        op->eval(variables_, kwargs_tensor);
+
+    }
+    return 0;
+}
    /* for (auto &expr: exprs_) 
     {
         if (expr.get_op_type() == "Input"){
@@ -68,11 +77,7 @@ int evaluation::execute()
     
     }
     */
-    for (auto &op:ops_) {
-        op->eval<variables_, kwargs_tensor>;
-    }
-    return 0;
-}
+  
 
 tensor &evaluation::get_result()
 {
