@@ -3,7 +3,6 @@
 #include "libeasynn.h"
 #include "program.h"
 #include "evaluation.h"
-#include "tensor.h"
 
 program *create_program()
 {

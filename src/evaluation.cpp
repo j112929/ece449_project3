@@ -18,6 +18,12 @@ evaluation::evaluation(const std::vector<expression> &exprs)
         else if (expr.get_op_type() == "Add") {
             ops_.push_back(std::make_shared<eval_add>(expr));
         }
+        else if (expr.get_op_type() == "Sub"){
+            ops_.push_back(std::make_shared<eval_sub>(expr));
+        }
+        else if (expr.get_op_type() == "Mul"){
+            ops_.push_back(std::make_shared<eval_mul>(expr));
+        }
 
     }
 }

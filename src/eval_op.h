@@ -22,6 +22,7 @@ class eval_op{
         virtual void eval(vars_type &variables, const kwargs_type &kwargs) = 0;
 };
 
+
 class eval_const: public eval_op{
         tensor value_;
     public:
@@ -34,15 +35,29 @@ class eval_input: public eval_op{
           tensor value_;
     public:
         eval_input(const expression &expr);
-        void eval(vars_type &variables , const kwargs_type &kwargs);
+        void eval(vars_type &variables , const kwargs_type &kwargs)override;
 };
 
 class eval_add: public eval_op{
     tensor value_;
     public:
         eval_add(const expression &expr);
-        void eval(vars_type &variables , const kwargs_type &kwargs);
+        void eval(vars_type &variables , const kwargs_type &kwargs)override;
     };
+
+class eval_sub: public eval_op{
+        tensor value_;
+    public:
+        eval_sub(const expression &expr);
+        void eval(vars_type &variables, const kwargs_type &kwargs)override;
+};
+
+class eval_mul: public eval_op{
+        tensor value_;
+    public:
+        eval_mul(const expression &expr);
+        void eval(vars_type &variables, const kwargs_type &kwargs)override;
+};
 
 #endif 
 

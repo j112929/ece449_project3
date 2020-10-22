@@ -12,11 +12,19 @@ int main()
     int inputs0[] = {};
     append_expression(prog, 0, "a", "Input", inputs0, 0);
 
-    int inputs1[] = {0, 0};
-    append_expression(prog, 1, "", "Add", inputs1, 2);
+    int inputs1[] = {};
+    append_expression(prog, 1, "b", "Input", inputs1, 2);
+
+    int inputs2[] = {0,1};
+    append_expression(prog, 2, "", "Add", inputs2, 2);
 
     evaluation *eval = build(prog);
-    add_kwargs_double(eval, "a", 5);
+    //add_kwargs_double(eval, "a", 5);
+    size_t myShape[2] = {2, 3};
+    size_t myShape2[2] = {3,2};
+    double myData[6] = {1,2,3,4,5,6};
+    add_kwargs_ndarray(eval, "a", 2, myShape, myData);
+    add_kwargs_ndarray(eval, "b", 2, myShape2, myData);
 
     int dim = 0;
     size_t *shape = nullptr;
