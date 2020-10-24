@@ -13,9 +13,15 @@ tensor::tensor(double v):
 tensor::tensor(int dim, size_t shape[], double data[]):
 shape_(shape, shape+dim)
 {
-    for (auto iter = shape_.begin(); iter != shape_.begin() + dim-1; ++iter ){
+   /* for (auto iter = shape_.begin(); iter != shape_.begin() + dim-1; ++iter ){
         N*=*iter;
+    }*/
+    int N=1;
+    int i;
+    for (i=0; i<dim; ++i){
+        N = shape[i]*N;
     }
+
     data_.assign(data, data+N);
 }
 

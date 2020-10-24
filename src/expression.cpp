@@ -33,6 +33,7 @@ tensor expression::get_op_param(const char *key) const {
             return i.second;
         }
     }
+
 }
 
 void expression::add_op_param_double(

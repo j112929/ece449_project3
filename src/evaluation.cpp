@@ -9,22 +9,29 @@
 evaluation::evaluation(const std::vector<expression> &exprs)
 : result_(0){
         for (auto &expr: exprs){
+            //for(auto &op:ops_){
+            printf("enter loop");
         if (expr.get_op_type() == "Input"){
             ops_.push_back(std::make_shared<eval_input>(expr));
+            
+            printf("in input");
         }
         else if (expr.get_op_type()== "Const") {
             ops_.push_back(std::make_shared<eval_const>(expr));
+                printf("in const");
         }
         else if (expr.get_op_type() == "Add") {
             ops_.push_back(std::make_shared<eval_add>(expr));
+            printf("in add");
         }
         else if (expr.get_op_type() == "Sub"){
             ops_.push_back(std::make_shared<eval_sub>(expr));
+            printf("in sub");
         }
         else if (expr.get_op_type() == "Mul"){
             ops_.push_back(std::make_shared<eval_mul>(expr));
         }
-
+          //  }
     }
 }
 
@@ -48,12 +55,11 @@ void evaluation::add_kwargs_ndarray(
 int evaluation::execute()
 { 
     variables_.clear();
-    
       for (auto &op:ops_) {
         //op->eval(variables_, kwargs_tensor);
-        op->eval(variables_, kwargs_tensor);
-
+        result_ = op->eval(variables_, kwargs_tensor);
     }
+    //result_ = ops_.back().get_id();
     return 0;
 }
    /* for (auto &expr: exprs_) 
@@ -86,6 +92,6 @@ int evaluation::execute()
   
 
 tensor &evaluation::get_result()
-{
+{   
     return result_;
 }

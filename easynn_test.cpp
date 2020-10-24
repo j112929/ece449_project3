@@ -13,7 +13,7 @@ int main()
     append_expression(prog, 0, "a", "Input", inputs0, 0);
 
     int inputs1[] = {};
-    append_expression(prog, 1, "b", "Input", inputs1, 2);
+    append_expression(prog, 1, "b", "Input", inputs1, 0);
 
     int inputs2[] = {0,1};
     append_expression(prog, 2, "", "Add", inputs2, 2);
